@@ -1,16 +1,16 @@
 :root {
-    --clr-primary: rgb (54, 112, 199);
+    --clr-primary: rgb(85, 125, 255);
     --clr-light: #f4f4f4;
     --clr-dark: #333;
     --clr-warning: rgb(99, 36, 36);
 }
 
-*,
+/* *,
 *::before,
 *::after {
     font-family: inherit;
     box-sizing: border-box;
-}
+} */
 
 
 body {
@@ -20,4 +20,29 @@ body {
     font-size: 1.5rem;
     background-color: var(--clr-primary);
     color: var(--clr-light);
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "title title title title"
+    "lists . task task"
+    "lists . task task"
+    "lists . task task"
+
+   
 }
+
+#app-title {
+    grid-area: title;
+}
+
+#lists-bar {
+    grid-area: lists;
+}
+
+#tasks {
+    grid-area: task;
+}
+
+
