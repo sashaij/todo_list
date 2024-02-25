@@ -1,4 +1,12 @@
+const addListButton = document.getElementById('new-list-button');
+
 import './styles/main.css' 
+
+import preventSubmit from './preventSubmit';
+import addNewList from './add_item';
+
+addListButton.addEventListener('click', preventSubmit);
+addListButton.addEventListener('click', addNewList);
 
 //lists
     //lists section
@@ -81,7 +89,7 @@ import './styles/main.css'
             //modify text
             //element > innerhtml >
             //> 'new text'
-            
+
 
 
         
