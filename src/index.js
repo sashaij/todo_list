@@ -1,12 +1,18 @@
 const addListButton = document.getElementById('new-list-button');
+const addTaskButton = document.getElementById('new-task-button');
 
 import './styles/main.css' 
 
 import preventSubmit from './preventSubmit';
-import addNewList from './add_item';
+import { addNewList, addNewTask } from './add_item';
 
 addListButton.addEventListener('click', preventSubmit);
 addListButton.addEventListener('click', addNewList);
+
+addTaskButton.addEventListener('click', preventSubmit);
+addTaskButton.addEventListener('click', addNewTask);
+
+
 
 //lists
     //lists section

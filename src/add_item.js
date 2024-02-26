@@ -1,6 +1,8 @@
 
 const newListForm  = document.querySelector('.new-list');
 const listsList = document.getElementById('lists');
+const newTaskForm = document.querySelector('.new-task');
+const taskList = document.getElementById('tasks-list');
 
 
 const addNewList = function () {
@@ -13,4 +15,23 @@ const addNewList = function () {
 
 }
 
-export default addNewList;
+const addNewTask = function () {
+    let taskFormInput = newTaskForm.value;
+    let taskContainer = document.createElement('div');
+    let newTaskItem = document.createElement('input');
+    let newTaskLabel = document.createElement('label');
+    taskContainer.setAttribute('class', 'task');
+    newTaskItem.setAttribute('type', 'checkbox');
+    newTaskItem.setAttribute('id', `task-2`);
+    newTaskLabel.setAttribute('for', `task-2`);
+    newTaskLabel.textContent = ` ${taskFormInput}`;
+    taskList.appendChild(taskContainer);
+    taskContainer.appendChild(newTaskItem);
+    taskContainer.appendChild(newTaskLabel);
+    newTaskForm.value = '';
+}
+
+export { addNewList, addNewTask };
+
+
+
