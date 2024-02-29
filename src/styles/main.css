@@ -33,6 +33,15 @@ body {
    
 }
 
+.list-button {
+    width: 100px;
+    height: 40px;
+    border: none;
+    background-color: var(--clr-primary);
+    color: var(--clr-light);
+    font-size: 2rem;
+}
+
 #app-title {
     grid-area: title;
 }
