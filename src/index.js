@@ -4,7 +4,9 @@ const addTaskButton = document.getElementById('new-task-button');
 import './styles/main.css' 
 
 import preventSubmit from './preventSubmit';
-import { createNewList, createNewTask, makeNewList, makeNewTask } from './add_item';
+import { createNewList, createNewTask, makeNewList, makeNewTask, displayTasks, showHTML } from './add_item';
+import { switchActiveList } from './active_list';
+import { removeTasks } from './remove_item';
 
 
 addListButton.addEventListener('click', preventSubmit);
@@ -15,6 +17,13 @@ addListButton.addEventListener('click', addNewList);
 addTaskButton.addEventListener('click', preventSubmit);
 addTaskButton.addEventListener('click', makeNewTask)
 //addTaskButton.addEventListener('click', addNewTask);
+
+const taskDisplay = displayTasks();
+taskDisplay.populateTasks();
+
+
+removeTasks();
+showHTML();
 
 
 
