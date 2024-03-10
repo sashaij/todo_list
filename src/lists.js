@@ -214,11 +214,15 @@ function list (title) {
 
 ///
 
+//class for item lists
 export class List {
     constructor () {
+        //add new list element when
+        //"+" button is clicked
         const newListButton = document.getElementById('new-list-button');
         newListButton.addEventListener('click', preventSubmit);
         newListButton.addEventListener('click', this._createNewList.bind(this));
+        newListButton.addEventListener('click', this._emptyListForm.bind(this));
     }
 
     
@@ -226,9 +230,12 @@ export class List {
     tasks = [];
     
     _createNewList(){
+        //form for title input
         const newListForm = document.querySelector('.new-list');
+        //list title var
         let newListTitle; 
         const listsContainer = document.getElementById('lists');
+        //value form the input form
         newListTitle = newListForm.value;
         const newListEl = document.createElement('li');
         const newListBtn = document.createElement('button');
@@ -239,10 +246,11 @@ export class List {
         listsContainer.appendChild(newListEl);
     }
 
-    _addNewList(){
-        const newListButton = document.getElementById('new-list-button');
-
+    _emptyListForm () {
+        const newListForm = document.querySelector('.new-list');
+        newListForm.value = '';
     }
+
 
     _taskQuantity() {
 
