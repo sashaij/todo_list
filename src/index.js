@@ -1,4 +1,4 @@
-const addListButton = document.getElementById('new-list-button');
+/* const addListButton = document.getElementById('new-list-button');
 const addTaskButton = document.getElementById('new-task-button');
 
 import './styles/main.css' 
@@ -12,8 +12,8 @@ import { removeTasks } from './remove_item';
 addListButton.addEventListener('click', preventSubmit);
 addListButton.addEventListener('click', makeNewList);
 /* 
-addListButton.addEventListener('click', addNewList);
- */
+addListButton.addEventListener('click', addNewL
+
 addTaskButton.addEventListener('click', preventSubmit);
 addTaskButton.addEventListener('click', makeNewTask)
 //addTaskButton.addEventListener('click', addNewTask);
@@ -24,7 +24,7 @@ taskDisplay.populateTasks();
 
 removeTasks();
 showHTML();
-
+ */
 
 
 //lists
@@ -110,6 +110,10 @@ showHTML();
             //> 'new text'
 
 
+import './styles/main.css'  
+import { List } from "./lists";
+
+const defaultList = new List ();
 
         
     
