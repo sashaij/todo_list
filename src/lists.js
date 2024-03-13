@@ -214,20 +214,64 @@ function list (title) {
 
 ///
 
+export class listsList {
+    constructor(){
+        const newListButton = document.querySelector('#new-list-button');
+        newListButton.addEventListener('click', this._makeNewList.bind(this)); 
+        newListButton.addEventListener('click', this._addList.bind(this));
+        newListButton.addEventListener('click', this._emptyListForm.bind(this))
+    }
+    lists = []
+    newList
+
+    
+    get lists () {
+        return this.lists;
+    }
+    
+    _makeNewList () {
+        //input from a title form
+        const listTitleInput = document.querySelector('.new-list');
+        console.log(`title input: ${listTitleInput}`);
+        console.log(listTitleInput.value);
+        const listTitle = listTitleInput.value;
+        this.newList = new List (listTitle);
+        console.log('list title: ');
+        console.log(listTitle);
+        console.log('new list');
+        console.log(this.newList);
+    }
+    
+    
+    _addList() {
+        this.lists.push(this.newList);
+        console.log('lists: ');
+        console.log(this.lists);
+    }
+
+    _emptyListForm () {
+        const newListForm = document.querySelector('.new-list');
+        newListForm.value = '';
+    }
+}
+
 //class for item lists
 export class List {
-    constructor () {
+    constructor (title) {
+        this.title = title;
         //add new list element when
         //"+" button is clicked
         const newListButton = document.getElementById('new-list-button');
         newListButton.addEventListener('click', preventSubmit);
         newListButton.addEventListener('click', this._createNewList.bind(this));
-        newListButton.addEventListener('click', this._emptyListForm.bind(this));
     }
 
     
-    
     tasks = [];
+
+    get tasks() {
+        return this.tasks;    
+    }
     
     _createNewList(){
         //form for title input
@@ -246,16 +290,27 @@ export class List {
         listsContainer.appendChild(newListEl);
     }
 
-    _emptyListForm () {
-        const newListForm = document.querySelector('.new-list');
-        newListForm.value = '';
-    }
-
-
     _taskQuantity() {
 
     }
 }
+
+
+//lists []
+//declare new list in listsList class
+//and push new list into 'lists' array
+
+
+//adding new task to the existing list 
+//probably requires rewriting existing 
+//'tasks' property in the list object
+//or rewriting the whole object (deleteing
+//and adding it again in the same 
+//index of an array)
+
+//list, tasks []
+//task
+
 
 
 

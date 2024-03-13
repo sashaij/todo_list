@@ -111,9 +111,13 @@ showHTML();
 
 
 import './styles/main.css'  
-import { List } from "./lists";
+import { List, listsList } from "./lists";
 
-const defaultList = new List ();
+const listList = new listsList(new List);
+
+//how to correctly create list obj
+//push them into lists list
+//same for tasks
 
         
     
