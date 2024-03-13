@@ -38,7 +38,27 @@
         <div id="new-task-form">
             <form action="">
                 <input type="text" class="new-task" placeholder="new task" aria-label="new task">
-                <button id="new-task-button">+</button>
+                <div id="priority-container">
+                    <div id="priority-title">
+                        Priority
+                    </div>
+                    <div id="priority-input">
+                        <input type="radio" name="priority" value="high" id="prior-ch-high"/>
+                        <label for="prior-ch-high">High</label>
+                        <input type="radio" name="priority" value="low" id="prior-ch-low"/>
+                        <label for="prior-ch-low">Low</label>
+                    </div>
+
+                </div>
+                <div id="date-container">
+                    <label for="due-date-input">Complete due date: </label>
+                    <input type="date" id="due-date-input" name="do-due-date" min='2024-03-13'/>
+                </div>
+                <div id="description-container">
+                    <label for="description-input">Description: </label>
+                    <input type="text" maxlength="120" id="description-input">
+                </div>
+                <button type="submit" id="new-task-button">+</button>
             </form>
         </div>
         <div id="delete-task">
