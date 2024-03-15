@@ -176,6 +176,7 @@ const addNewTask = function () {
 
 import { newTask } from "./tasks";
 import preventSubmit from "./preventSubmit";
+import { Task, TaskData } from "./tasks";
 /* 
 function lists (list) {
     let lists = [
@@ -216,10 +217,12 @@ function list (title) {
 
 export class listsList {
     constructor(){
+
         const newListButton = document.querySelector('#new-list-button');
         newListButton.addEventListener('click', this._makeNewList.bind(this)); 
         newListButton.addEventListener('click', this._addList.bind(this));
-        newListButton.addEventListener('click', this._emptyListForm.bind(this))
+        newListButton.addEventListener('click', this._emptyListForm.bind(this));
+        
     }
     lists = []
     newList
@@ -242,13 +245,14 @@ export class listsList {
         console.log(this.newList);
     }
     
-    
+    //add new list to the 'lists' array
     _addList() {
         this.lists.push(this.newList);
         console.log('lists: ');
         console.log(this.lists);
     }
 
+    //empty list title form field 
     _emptyListForm () {
         const newListForm = document.querySelector('.new-list');
         newListForm.value = '';
@@ -262,12 +266,16 @@ export class List {
         //add new list element when
         //"+" button is clicked
         const newListButton = document.getElementById('new-list-button');
+        const newTaskButton = document.getElementById('new-task-button');
         newListButton.addEventListener('click', preventSubmit);
         newListButton.addEventListener('click', this._createNewList.bind(this));
+        newTaskButton.addEventListener('click', preventSubmit);
+        newTaskButton.addEventListener('click', this._addTask.bind(this));
     }
 
-    
+    task;
     tasks = [];
+    taskIndex;
 
     get tasks() {
         return this.tasks;    
@@ -288,6 +296,40 @@ export class List {
         newListBtn.innerHTML = `${newListTitle}`;
         newListEl.appendChild(newListBtn);
         listsContainer.appendChild(newListEl);
+    }
+
+    _setTaskIndex () {
+        this.taskIndex = this.tasks.length;
+    }
+
+    _addTask () {
+        let taskTitle;
+        let taskPriority;
+        let taskDate;
+        let taskDescription;
+
+        //title input field
+        const taskTitleInput = document.querySelector('.new-task');
+        const taskPriorityInput = document.getElementsByName('priority');
+        const taskDateInput = document.getElementById('due-date-input');
+        const taskDescriptionInput = document.getElementById('description-input');
+
+        taskTitle = taskTitleInput.value;
+        taskDate = taskDateInput.value;
+        taskDescription = taskDescriptionInput.value;
+
+        //get value from checked 
+        //radio button
+        for (let i = 0; i < taskPriorityInput.length; i++) {
+            if (taskPriorityInput[i].checked){
+                taskPriority = taskPriorityInput[i].value;
+            }
+        }
+
+        this.task = new Task (taskTitle, taskDate, taskPriority, 1, taskDescription);
+
+        this.tasks.push(this.task);
+        console.log(this.tasks);
     }
 
     _taskQuantity() {
